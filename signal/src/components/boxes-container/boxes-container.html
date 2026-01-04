@@ -1,13 +1,6 @@
 <div class="flex-display container">
-  <app-box1 #boxRef></app-box1>
-  <app-box2 #boxRef></app-box2>
-  <app-box3 #boxRef></app-box3>
-  <app-box4 #boxRef></app-box4>
-  <app-box5 #boxRef></app-box5>
-  <app-box6 #boxRef></app-box6>
-  <app-box7 #boxRef></app-box7>
-  <app-box8 #boxRef></app-box8>
-  <app-box9 #boxRef></app-box9>
-  <app-box10 #boxRef></app-box10>
+  @for (index of boxIndices; track index) {
+    <app-box [boxIndex]="index" #boxRef></app-box>
+  }
   <app-total-value></app-total-value>
 </div>

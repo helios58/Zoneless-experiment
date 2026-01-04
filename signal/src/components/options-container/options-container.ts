@@ -4,11 +4,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActiveOptionService } from '../../services/active-option.service';
 import { ActiveBoxService } from '../../services/active-box.service';
 import { LocalStorageService } from '../../services/local-storage.service';
-import { options } from '../options';
-
+import { Option } from '../option/option';
 @Component({
   selector: 'app-options-container',
-  imports: [options],
+  imports: [Option],
   templateUrl: './options-container.html',
   styleUrl: './options-container.css',
   standalone: true,
@@ -19,6 +18,9 @@ export class OptionsContainer implements AfterViewInit {
   @ViewChildren('optionRef', { read: ElementRef }) optionElements!: QueryList<ElementRef<HTMLElement>>;
   //inject DestroyRef for cleanup
   private readonly destroyRef = inject(DestroyRef);
+
+  // Array of option indices for the loop
+  readonly optionIndices = Array.from({ length: 10 }, (_, i) => i);
 
   constructor(
     private readonly activeOptionService: ActiveOptionService,

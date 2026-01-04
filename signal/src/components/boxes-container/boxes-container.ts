@@ -15,11 +15,11 @@ import { LocalStorageService } from '../../services/local-storage.service';
 
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { boxes } from '../boxes';
+import { Box } from '../box/box';
 import { TotalValue } from '../total-value/total-value';
 @Component({
   selector: 'app-boxes-container',
-  imports: [...boxes, TotalValue],
+  imports: [Box, TotalValue],
   templateUrl: './boxes-container.html',
   styleUrls: ['./boxes-container.css'],
   standalone: true,
@@ -32,6 +32,9 @@ export class BoxesContainer implements AfterViewInit {
  
   //inject DestroyRef for cleanup
   private readonly destroyRef = inject(DestroyRef);
+
+  // Array of box indices for the loop
+  readonly boxIndices = Array.from({ length: 10 }, (_, i) => i);
 
   constructor(
     private readonly activeBoxService: ActiveBoxService,

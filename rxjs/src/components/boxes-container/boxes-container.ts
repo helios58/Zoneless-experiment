@@ -5,6 +5,8 @@ import {
 
 import { TotalValue } from '../total-value/total-value';
 import { Box } from '../box/box';
+import { TOTAL_ITEMS } from '../../utils/constants.util';
+
 @Component({
   selector: 'app-boxes-container',
   standalone: true,
@@ -14,5 +16,5 @@ import { Box } from '../box/box';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoxesContainer {
-  readonly boxIndexes = Array.from({ length: 10 }, (_, i) => i);
+  readonly boxIndexes = Array.from({ length: TOTAL_ITEMS }, (_, i) => i);
 }

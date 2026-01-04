@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Option } from '../option/option';
+import { TOTAL_ITEMS } from '../../utils/constants.util';
 
 @Component({
   selector: 'app-options-container',
@@ -10,5 +11,5 @@ import { Option } from '../option/option';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OptionsContainer {
-  readonly optionIndexes = Array.from({ length: 10 }, (_, i) => i);
+  readonly optionIndexes = Array.from({ length: TOTAL_ITEMS }, (_, i) => i);
 }

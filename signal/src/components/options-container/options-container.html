@@ -1,14 +1,7 @@
 <h2 class="options-title mt-2">Nature Illustration</h2>
 
 <div class="flex-display mt-2 container">
-  <app-option1 #optionRef></app-option1>
-  <app-option2 #optionRef></app-option2>
-  <app-option3 #optionRef></app-option3>
-  <app-option4 #optionRef></app-option4>
-  <app-option5 #optionRef></app-option5>
-  <app-option6 #optionRef></app-option6>
-  <app-option7 #optionRef></app-option7>
-  <app-option8 #optionRef></app-option8>
-  <app-option9 #optionRef></app-option9>
-  <app-option10 #optionRef></app-option10>
+  @for (index of optionIndices; track index) {
+    <app-option [optionIndex]="index" #optionRef></app-option>
+  }
 </div>
